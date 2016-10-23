@@ -16,20 +16,29 @@ API Course, Lesson 1 -->
      // Function to initialize the map within the map div
      function initMap() {
        map = new google.maps.Map(document.getElementById('map'), {
-         center: {lat: 40.74135, lng: -73.99802},
-         zoom: 14
+         center: {lat: 22.3964, lng: 114.1095},
+         zoom: 10
        });
        // Create a single latLng literal object.
-       var singleLatLng = {lat: 40.74135, lng: -73.99802};
-       // TODO: Create a single marker appearing on initialize -
-       // Create it with the position of the singleLatLng,
-       // on the map, and give it your own title!
+       var singleLatLng = {lat: 22.3364, lng: 114.2655};
+       // Create a single marker appearing on initialize
+       var marker = new google.maps.Marker({
+         position: singleLatLng,
+         map: map,
+         title: "HKUST"
+       });
+       marker.setMap(map);
 
-       // TODO: create a single infowindow, with your own content.
-       // It must appear on the marker
+       // create a single infowindow, appears on the marker
+       var contentString = "<a href='https://www.ust.hk'>Hong Kong University of Science and Technology</a>"
+       var infowindow = new google.maps.InfoWindow({
+         content: contentString
+       });
 
-       // TODO: create an EVENT LISTENER so that the infowindow opens when
-       // the marker is clicked!
+       // infowindow opens when the marker is clicked
+       marker.addListener('click', function() {
+         infowindow.open(map, marker);
+       });
      }
    </script>
    <script async defer
