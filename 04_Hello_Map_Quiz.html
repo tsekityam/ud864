@@ -11,15 +11,18 @@ API Course, Lesson 1 -->
  <body>
    <div id="map"></div>
    <script>
+     var map;
 
-     // TODO: Complete the following function to initialize the map
      function initMap() {
-       // TODO: use a constructor to create a new map JS object. You can use the coordinates
-       // we used, 40.7413549, -73.99802439999996 or your own!
+       map = new google.maps.Map(document.getElementById('map'), {
+         // Center the map to Hong Kong
+         center: {lat: 22.3964, lng: 114.1095},
+         zoom: 13
+       });
      }
    </script>
-   <!--TODO: Load the JS API ASYNCHRONOUSLY below.-->
-   <script>
+   <script async defer>
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIEvvEu2GnWAxh6PmlKpEYFb1JJn_ELvw&v=3&callback=initMap">
    </script>
  </body>
 </html>
