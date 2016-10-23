@@ -276,8 +276,6 @@
           polygon.setEditable(true);
           // Searching within the polygon.
           searchWithinPolygon();
-          // Printing the area of polygon to console in square meters.
-          printAreaOfPolygon();
           // Make sure the search is re-done if the poly is changed.
           polygon.getPath().addListener('set_at', searchWithinPolygon);
           polygon.getPath().addListener('insert_at', searchWithinPolygon);
@@ -386,13 +384,6 @@
             markers[i].setMap(null);
           }
         }
-      }
-
-      // This function prints the area of the polygon to console
-      // in square meters.
-      function printAreaOfPolygon() {
-         var path = polygon.getPath();
-         console.log(google.maps.geometry.spherical.computeArea(path));
       }
 
       // This function takes the input value in the find nearby area text input
